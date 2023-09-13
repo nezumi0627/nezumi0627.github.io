@@ -1,0 +1,114 @@
+/* Reset default margin and padding */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Background styles */
+body {
+    background-color: #b0c4de;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+/* Semi-transparent background layer */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: -1;
+}
+
+/* Opaque layer */
+.opaque-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff; /* Opaque white */
+    z-index: -2;
+}
+
+/* Logo styles */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    max-width: 150px; /* Adjust as needed */
+}
+
+/* Title styles */
+.title {
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    font-size: 24px;
+    color: #fff; /* White text color */
+}
+
+/* Discord button styles */
+.discord-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #7289da; /* Discord brand color */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underlines for links */
+    font-weight: bold;
+}
+
+.discord-button:hover {
+    background-color: #546d8e; /* Darker color on hover */
+}
+
+/* Social media buttons container */
+.social-buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Social media button styles */
+.social-button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #5f9ea0; /* Light blue text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.social-button:hover {
+    background-color: #e0e0e0; /* Lighter color on hover */
+}
+
+/* Scroll-to-top button styles */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #5f9ea0;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.scroll-to-top:hover {
+    background-color: #428b95; /* Darker color on hover */
+}
