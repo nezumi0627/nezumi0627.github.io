@@ -1,5 +1,12 @@
 /* 共通のスタイル */
 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #b0c4de;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -7,45 +14,46 @@
     height: 100vh;
 }
 
-/* スマートフォン用のスタイル */
-@media screen and (max-width: 480px) {
-    img {
-        border: 0;
-        outline: 4px solid #778899;
-    }
+.left-side {
+    text-align: center;
+    padding: 20px;
+    color: white;
 }
 
-/* PC用のスタイル */
-@media screen and (min-width: 1280px) {
-    img {
-        border: 1px solid #e6e6fa;
-        outline: none;
-    }
+.left-side h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
-/* ボタンのアニメーション */
+.left-side p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
 button {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
-    background-color: #3498db;
+    background-color: #2980b9;
     transform: scale(1.1);
 }
 
-/* テキストのアニメーション */
-#animated-text {
-    opacity: 0;
-    animation: slideIn 1s 1.6s forwards;
+.social-buttons {
+    margin-top: 20px;
 }
 
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.social-buttons a {
+    margin-right: 10px;
+}
+
+.right-side img {
+    max-width: 100%;
+    height: auto;
 }
