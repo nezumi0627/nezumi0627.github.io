@@ -6,16 +6,25 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* CSSアニメーションのスタイル */
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
+/* CSSアニメーションのスタイル */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* テキストのアニメーションを適用 */
+#animated-text {
+    animation: slideIn 1s 1.5s forwards; /* アニメーションを1秒かけて実行し、1.5秒後に開始 */
+    transform: translateX(0); /* 初期位置を左から右に移動させるために、transformを設定 */
+    opacity: 1; /* アニメーションが終了した後もテキストを表示したままにするためにopacityを1に設定 */
+}
+
 
         .social-buttons a:hover {
             transform: scale(1.1);
