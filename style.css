@@ -11,13 +11,15 @@
 @media screen and (max-width: 480px) {
     img {
         border: 0;
+        outline: 4px solid #778899;
     }
 }
 
 /* PC用のスタイル */
 @media screen and (min-width: 1280px) {
     img {
-        border: 1px solid red;
+        border: 1px solid #e6e6fa;
+        outline: none;
     }
 }
 
