@@ -1,114 +1,56 @@
-/* Reset default margin and padding */
 body {
     margin: 0;
     padding: 0;
-}
-
-/* Background styles */
-body {
-    background-color: #5f9ea0;
     font-family: Arial, sans-serif;
-    position: relative;
+    background-color: #b0c4de;
 }
 
-/* Semi-transparent background layer */
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-    z-index: -1;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-/* Opaque layer */
-.opaque-layer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff; /* Opaque white */
-    z-index: -2;
-}
-
-/* Logo styles */
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    max-width: 150px; /* Adjust as needed */
-}
-
-/* Title styles */
-.title {
-    position: absolute;
-    top: 70px;
-    left: 20px;
-    font-size: 24px;
-    color: #fff; /* White text color */
-}
-
-/* Discord button styles */
-.discord-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #7289da; /* Discord brand color */
-    color: #fff; /* White text color */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none; /* Remove underlines for links */
-    font-weight: bold;
-}
-
-.discord-button:hover {
-    background-color: #546d8e; /* Darker color on hover */
-}
-
-/* Social media buttons container */
-.social-buttons {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.left-side {
     text-align: center;
+    padding: 20px;
+    color: white;
 }
 
-/* Social media button styles */
-.social-button {
-    margin: 10px;
+.left-side h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.left-side p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+button#welcome-button {
+    background-color: #3498db;
+    border: none;
+    color: white;
     padding: 10px 20px;
-    background-color: #fff;
-    color: #5f9ea0; /* Light blue text color */
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
-.social-button:hover {
-    background-color: #e0e0e0; /* Lighter color on hover */
+button#welcome-button:hover {
+    background-color: #2980b9;
 }
 
-/* Scroll-to-top button styles */
-.scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #5f9ea0;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 24px;
+.social-buttons {
+    margin-top: 20px;
 }
 
-.scroll-to-top:hover {
-    background-color: #5f9ea0; /* Darker color on hover */
+.social-buttons a {
+    margin-right: 10px;
+}
+
+.right-side img {
+    max-width: 100%;
+    height: auto;
 }
