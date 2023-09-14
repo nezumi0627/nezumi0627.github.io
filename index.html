@@ -90,22 +90,6 @@
     </div>
 
     <script>
-        // ボタンがクリックされたときのアニメーション
-        function showText(button) {
-            const animatedText = document.getElementById('animated-text');
-            animatedText.style.animation = 'slideIn 1s forwards';
-            animatedText.style.transform = 'translateX(0)';
-            animatedText.style.opacity = '1';
-
-            // 画面遷移用のダミーリンクを表示して、1.5秒後に実際のリンクに遷移
-            const transitionLink = document.getElementById('transition-link');
-            transitionLink.href = button.href;
-            transitionLink.classList.remove('hidden');
-
-            setTimeout(() => {
-                transitionLink.click();
-            }, 1500);
-        }
     </script>
 <script src="script.js"></script>
 </body>
