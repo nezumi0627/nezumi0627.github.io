@@ -20,6 +20,21 @@
         .social-buttons a:hover {
             transform: scale(1.1);
         }
+        /* スマートフォン用のスタイル */
+        @media (max-width: 400px) {
+            .container {
+                max-width: 100%;
+            }
+        }
+
+        /* PC用のスタイル */
+        @media (min-width: 401px) {
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+        }
+
     </style>
     <title>Your Stylish Website</title>
 </head>
