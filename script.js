@@ -6,3 +6,11 @@ window.addEventListener("error", function(e) {
     }
 });
 
+// ハンバーガーメニューの動作
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
