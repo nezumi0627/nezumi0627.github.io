@@ -22,4 +22,23 @@
 
 .btn:hover {
     background-color: #45a049; /* ホバー時の背景色 */
+
+.container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.container p {
+    margin-bottom: 20px;
+}
+
+.container h1 {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 400px) {
+    .container {
+        max-width: 100%;
+    }
 }
