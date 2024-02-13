@@ -13,7 +13,20 @@
     <meta property="og:locale" content="ja">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-        /* ここにサーバー紹介ページ用のスタイルを定義します */
+        /* スマートフォン用のスタイル */
+        @media (max-width: 400px) {
+            .container {
+                max-width: 100%;
+            }
+        }
+
+        /* PC用のスタイル */
+        @media (min-width: 401px) {
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+        }
     </style>
     <title>Serverの紹介ページ</title>
 </head>
