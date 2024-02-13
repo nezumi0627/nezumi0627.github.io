@@ -1,12 +1,4 @@
 /* 共通のスタイル */
-
-body {
-    background-color: #0c0c0c;
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-/* 共通のスタイル */
 .container {
     max-width: 800px;
     margin: 100px auto 20px; /* ボタンを少し下に移動 */
@@ -30,73 +22,4 @@ body {
 
 .btn:hover {
     background-color: #45a049; /* ホバー時の背景色 */
-}
-
-
-/* ハンバーガーメニュー */
-.hamburger {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 999;
-    cursor: pointer;
-}
-
-.hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: rgba(192, 192, 192, 0.5); /* 薄灰色の透過背景 */
-    margin: 5px;
-    transition: all 0.3s ease;
-}
-
-.hamburger.active div:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger.active div:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active div:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* ナビゲーションメニュー */
-.nav-menu {
-    position: fixed;
-    top: 60px; /* ボタンからの距離を調整 */
-    right: 20px;
-    height: 100vh;
-    width: 200px;
-    background-color: rgba(192, 192, 192, 0.8); /* 薄灰色の透過背景 */
-    z-index: 998;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-}
-
-.nav-menu.active {
-    transform: translateX(0);
-}
-
-.nav-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-menu ul li {
-    text-align: center; /* リスト項目を中央揃え */
-    padding: 20px 0;
-}
-
-.nav-menu ul li a {
-    text-decoration: none;
-    color: black; /* テキストカラーを黒に */
-    font-size: 18px;
-    transition: color 0.3s; /* リンクのホバーエフェクト */
-}
-
-.nav-menu ul li a:hover {
-    color: #333; /* ホバー時のテキストカラー */
 }
