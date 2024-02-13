@@ -7,10 +7,6 @@
     text-align: center; /* ボタンを中央に配置 */
 }
 
-body {
-    background-color: #0c0c0c;
-}
-
 .btn {
     background-color: #4CAF50; /* ボタンの背景色 */
     color: white;
