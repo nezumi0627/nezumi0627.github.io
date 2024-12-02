@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 基本設定 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Nezumi Dev</title>
+
+    <!-- スタイルシート -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js" defer></script>
+
+    <!-- ファビコン -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- OGP基本設定 -->
+    <meta property="og:title" content="I'm Nezumi - Python Developer🐍">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nezumi.dev/">
+    <meta property="og:image" content="icon.jpg">
+    <meta property="og:site_name" content="Nezumi Dev Portfolio">
+    <meta property="og:description" content="Hi!! I'm nezumi Python Developer🐍">
+
+    <!-- Twitter Card設定 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@nezum1zum1">
+    <meta name="twitter:creator" content="@nezum1zum1">
+    <meta name="twitter:title" content="I'm Nezumi Dev - Python Developer">
+    <meta name="twitter:description" content="Hi!! I'm nezumi Python Developer🐍">
+    <meta name="twitter:image" content="icon.jpg">
+</head>
+
+<body>
+    <main>
+        <!-- サイドナビゲーション -->
+        <aside>
+            <ul class="Links">
+                <li onclick="Navigate(0)" class="activeLink">
+                    <i class="fa-solid fa-house"></i>
+                    <p>Home</p>
+                </li>
+                <li onclick="Navigate(1)">
+                    <i class="fa-solid fa-user"></i>
+                    <p>About Me</p>
+                </li>
+                <li onclick="Navigate(2)">
+                    <i class="fa-solid fa-list"></i>
+                    <p>Repository</p>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <div class="swiper mySwiper">
+            <div class="SlideContainer swiper-wrapper">
+                <!-- ホームスライド -->
+                <div class="swiper-slide home-slide">
+                    <div class="SideImg">
+                        <img src="icon.jpg" alt="Profile Image">
+                    </div>
+                    <div class="HomeContent">
+                        <h1>Hi! I'm <span class="stylized-name">Nezumi</span>,</h1>
+                        <h2>A <span class="proffesions">Python Developer🐍</span></h2>
+                        <p class="heroline">
+                            I spend my days in front of the computer, learning new technologies and
+                            creating tools to make development more efficient and enjoyable.
+                        </p>
+                    </div>
+                    <p class="slide-help">Scroll Down for Next</p>
+                </div>
+
+                <!-- アバウトスライド -->
+                <div class="swiper-slide">
+                    <div class="about-us">
+                        <h1 class="heading">About Me</h1>
+                        <div class="profile-container">
+                            <!-- プロフィール概要 -->
+                            <div class="profile-summary">
+                                <div class="profile-header">
+                                    <img src="icon.jpg" alt="Profile Image" class="profile-image">
+                                    <div class="profile-title">
+                                        <h2>Nezumi (ねずみ)</h2>
+                                        <p class="subtitle">Python Developer</p>
+                                        <p class="location"><i class="fa-solid fa-location-dot"></i> Fukuoka, Japan</p>
+                                    </div>
+                                </div>
+                                <p class="bio mobile-bio">
+                                    A 16-year-old Python developer specializing in network analysis and automation
+                                    tools. 🐍
+                                </p>
+                                <p class="bio desktop-bio">
+                                    A 16-year-old developer passionate about Python development,
+                                    specializing in network analysis and automation tools.
+                                    With 3+ years of coding experience, I focus on creating efficient
+                                    solutions and exploring new technologies.
+                                </p>
+                                <div class="quick-info">
+                                    <div class="info-item">
+                                        <i class="fa-solid fa-code"></i>
+                                        <span>3+ Years Coding</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fa-solid fa-network-wired"></i>
+                                        <span>Network Analysis</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fa-solid fa-robot"></i>
+                                        <span>Automation Tools</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fa-solid fa-palette"></i>
+                                        <span>Digital Artist</span>
+                                    </div>
+                                </div>
+                                <div class="social-links">
+                                    <a href="https://github.com/nezumi0627" class="social-link github" target="_blank">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="https://twitter.com/nezum1zum1" class="social-link twitter"
+                                        target="_blank">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </a>
+                                    <a href="https://discordapp.com/users/879525928261255199"
+                                        class="social-link discord" target="_blank">
+                                        <i class="fa-brands fa-discord"></i>
+                                    </a>
+                                    <a href="https://instagram.com/nezum1n1um" class="social-link instagram"
+                                        target="_blank">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- スキルセクション -->
+                            <div class="skills-section">
+                                <div class="skill-card primary">
+                                    <div class="skill-icon">
+                                        <i class="fa-brands fa-python"></i>
+                                    </div>
+                                    <div class="skill-content">
+                                        <h3>Python</h3>
+                                        <p class="skill-status">Primary Language</p>
+                                        <p class="skill-description">
+                                            Specializing in network analysis and library development.
+                                            Focus on developing automation tools and optimization.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="skill-card secondary">
+                                    <div class="skill-icon">
+                                        <i class="fa-brands fa-js"></i>
+                                    </div>
+                                    <div class="skill-content">
+                                        <h3>JavaScript</h3>
+                                        <p class="skill-status">Professional Experience</p>
+                                        <p class="skill-description">
+                                            Utilized in frontend development.
+                                            Used for interactive web development.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- リポジトリスライド -->
+                <div class="swiper-slide services">
+                    <h1 class="heading">Repository</h1>
+                    <div class="service">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h2>Automation Tools</h2>
+                        <p>Python automation scripts and tools for development efficiency</p>
+                    </div>
+                    <div class="service">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h2>Library Development</h2>
+                        <p>Custom Python libraries for network analysis and data processing</p>
+                    </div>
+                    <div class="service">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h2>Network Tools</h2>
+                        <p>Network analysis and monitoring solutions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </main>
+</body>
+
+</html>
