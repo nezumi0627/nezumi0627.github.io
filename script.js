@@ -57,4 +57,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 初期化時に正しいリンクを選択状態に
     updateActiveLink(swiper.activeIndex);
+
+    // スワイプ処理の追加
+    const services = document.querySelectorAll('.service');
+
+    services.forEach(service => {
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        service.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        service.addEventListener('touchmove', e => {
+            touchEndX = e.touches[0].clientX;
+        });
+
+        service.addEventListener('touchend', () => {
+            const swipeDistance = touchStartX - touchEndX;
+
+            if (swipeDistance > 50) { // 右から左へのスワイプ
+                service.classList.add('swiped');
+            } else if (swipeDistance < -50) { // 左から右へのスワイプ
+                service.classList.remove('swiped');
+            }
+        });
+    });
 });

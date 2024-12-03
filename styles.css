@@ -419,38 +419,168 @@ aside li i {
 
 @media (max-width: 768px) {
     .services {
-        padding: 12px;
-        gap: 10px;
-        grid-template-columns: 1fr;
-        /* モバイルでは1列に */
-    }
-
-    .services .heading {
-        font-size: 1.8em;
-        margin-bottom: 12px;
-        margin-top: -5px;
-        /* 上部に少し移動 */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        padding: 15px;
     }
 
     .service {
-        padding: 15px;
+        padding: 18px;
         gap: 6px;
         min-height: 100px;
-        padding-bottom: 35px;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        background: rgba(26, 30, 33, 0.98);
+        border-radius: 16px;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+    }
+
+    /* 詳細表示用のコンテナ */
+    .service .desc-container {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(26, 30, 33, 0.98);
+        transition: transform 0.3s ease;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        /* 初期状態は透明 */
+        visibility: hidden;
+        /* 初期状態は非表示 */
+    }
+
+    /* スワイプ時のスタイル */
+    .service.swiped .desc-container {
+        transform: translateX(-100%);
+        opacity: 1;
+        /* スワイプ時に表示 */
+        visibility: visible;
+        /* スワイプ時に表示 */
+    }
+
+    /* 通常の説明文は非表示 */
+    .service .desktop-desc {
+        display: none;
+    }
+
+    /* スワイプ時の説明文のみ表示 */
+    .service.swiped .desc-container .desktop-desc {
+        display: block;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.9em;
+        line-height: 1.5;
+        padding: 0 10px;
+    }
+
+    /* スワイプインジケーター */
+    .service::before {
+        content: '←';
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 1.2em;
+    }
+
+    /* LINE関連のカード（LINE JS Bot, Nezu Notify, LINE Theme Downloader, Simple Works） */
+    .service.line-card,
+    .service.notify-card,
+    .service.works-card {
+        border-left: 4px solid #00B900;
+        background: rgba(26, 30, 33, 0.98);
+    }
+
+    .service.line-card .service-icon i,
+    .service.notify-card .service-icon i,
+    .service.works-card .service-icon i {
+        color: #00B900;
+    }
+
+    /* Python関連のカード */
+    .service.python-card {
+        border-left: 4px solid #3776AB;
+        background: rgba(26, 30, 33, 0.98);
+    }
+
+    .service.python-card .service-icon i {
+        color: #3776AB;
+    }
+
+    /* Discordのカード */
+    .service.discord-card {
+        border-left: 4px solid #7289DA;
+        background: rgba(26, 30, 33, 0.98);
+    }
+
+    .service.discord-card .service-icon i {
+        color: #7289DA;
+    }
+
+    .service:active {
+        transform: scale(0.98);
+        background-position: right;
+    }
+
+    .repo-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-left: 12px;
+        margin-top: 5px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .service-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 10px;
+        border-radius: 12px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .service-icon i {
+        font-size: 1.8em;
     }
 
     .service h2 {
-        margin-top: -5px;
-        /* タイトルを上に移動 */
-        font-size: 1em;
+        font-size: 1.4em;
+        margin: 0;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        color: rgba(255, 255, 255, 0.95);
     }
 
-    .repo-link {
-        bottom: 8px;
-        width: calc(100% - 100px);
-        padding: 4px 8px;
-        font-size: 0.75em;
-        border-radius: 4px;
+    /* カードの背景エフェクト */
+    .service::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(105deg,
+                rgba(255, 255, 255, 0.01) 0%,
+                transparent 50%);
+        pointer-events: none;
+    }
+
+    /* カードのホバーエフェクト */
+    .service:hover {
+        transform: translateY(-1px);
+        background-position: left;
     }
 }
 
@@ -1385,7 +1515,7 @@ form h2 .SocialLinks i:hover {
         left: 50%;
         /* 左端を中央に */
         transform: translateX(-50%);
-        /* 要素の半分だけ左に戻す */
+        /* 素のだけ左に戻す */
         width: auto;
         /* 幅を自動に */
         text-align: center;
@@ -1501,7 +1631,7 @@ form h2 .SocialLinks i:hover {
         font-size: 1.3em;
     }
 
-    /* スキルセクションを非表示 */
+    /* スキルセクション非表示 */
     .skills-section {
         display: none;
     }
@@ -1597,7 +1727,7 @@ form h2 .SocialLinks i:hover {
         padding: 12px;
         gap: 10px;
         grid-template-columns: 1fr;
-        /* モバイルでは1列に */
+        /* モバルでは1列に */
     }
 
     .services .heading {
@@ -1629,7 +1759,7 @@ form h2 .SocialLinks i:hover {
     }
 }
 
-/* PC/モバイルでの説明文の切り替え */
+/* PC/モバイルでの説明文の切替え */
 .mobile-desc {
     display: none;
 }
@@ -1710,7 +1840,6 @@ form h2 .SocialLinks i:hover {
     /* About Meセクションの調整 */
     .about-us {
         padding: 0;
-        /* パディングを0に */
         background: none;
         height: 100vh;
         display: flex;
@@ -1723,8 +1852,8 @@ form h2 .SocialLinks i:hover {
         display: block;
         font-size: 2em;
         color: #80ed99;
-        margin: 20px 0 15px 0;
-        /* 上部マージンを追加 */
+        margin: 10px 0;
+        /* マージンを縮小 */
         padding: 0;
     }
 
@@ -1733,8 +1862,21 @@ form h2 .SocialLinks i:hover {
         width: 100%;
         border: none;
         background: none;
-        margin-top: -20px;
-        /* 上に少し移動 */
+        margin-top: 0;
+        /* マージンを0に変更 */
+        /* 上方向のマージンを調整 */
+    }
+
+    .profile-summary {
+        width: 100%;
+        padding: 20px;
+        gap: 12px;
+        background: rgba(26, 30, 33, 0.95);
+        border-radius: 15px;
+        border: 1px solid rgba(128, 237, 153, 0.1);
+        margin-top: 5px;
+        /* 上マージンを追加してカードを下に */
+        /* カードを下に移動 */
     }
 
     /* swiper-slideの調整 */
@@ -1742,7 +1884,312 @@ form h2 .SocialLinks i:hover {
         background: none;
         height: 100%;
         overflow-y: auto;
-        padding-top: 20px;
-        /* 上部にパディングを追加 */
+        padding-top: 15px;
+        /* 上部のパディングを調整 */
+    }
+}
+
+/* スマホ横画面用のメディアクエリ */
+@media (max-width: 900px) and (orientation: landscape) {
+
+    /* Repository セクション */
+    .services {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto repeat(2, 1fr);
+        gap: 12px;
+        padding: 15px;
+        height: 100vh;
+        align-content: start;
+        grid-auto-flow: column;
+        overflow-y: auto;
+    }
+
+    .services .heading {
+        grid-column: 1/-1;
+        grid-row: 1;
+        font-size: 1.6em;
+        margin-bottom: 12px;
+        text-align: center;
+        color: #80ed99;
+    }
+
+    .service {
+        min-height: 85px;
+        padding: 12px 10px;
+        display: flex;
+        flex-direction: column;
+        /* 縦方向に並べる */
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        /* アイコンとテキストの間隔 */
+        border-radius: 12px;
+        background: rgba(26, 30, 33, 0.95);
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+        border-left: 3px solid transparent;
+    }
+
+    .repo-header {
+        display: flex;
+        flex-direction: column;
+        /* 縦方向に並べる */
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+    }
+
+    .service-icon {
+        width: 36px;
+        height: 36px;
+        padding: 7px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .service-icon i {
+        font-size: 1.3em;
+    }
+
+    .service h2 {
+        font-size: 0.9em;
+        text-align: center;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0;
+    }
+
+    /* カードの装飾 */
+    .service.line-card,
+    .service.notify-card,
+    .service.works-card {
+        border-left-color: #00B900;
+    }
+
+    .service.line-card .service-icon i,
+    .service.notify-card .service-icon i,
+    .service.works-card .service-icon i {
+        color: #00B900;
+    }
+
+    .service.python-card {
+        border-left-color: #3776AB;
+    }
+
+    .service.python-card .service-icon i {
+        color: #3776AB;
+    }
+
+    .service.discord-card {
+        border-left-color: #7289DA;
+    }
+
+    .service.discord-card .service-icon i {
+        color: #7289DA;
+    }
+
+    /* インタラクション */
+    .service:active {
+        transform: scale(0.97);
+        opacity: 0.9;
+    }
+
+    /* 説明文関連を非表示 */
+    .service .desc-container,
+    .service .desktop-desc,
+    .service::before {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+    /* About Me セクション */
+    .about-us {
+        padding: 8px 15px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-us .heading {
+        font-size: 1.5em;
+        margin: 5px 0;
+        text-align: center;
+        color: #80ed99;
+    }
+
+    .profile-container {
+        display: flex;
+        gap: 12px;
+        padding: 0;
+        height: calc(100vh - 50px);
+    }
+
+    .profile-summary {
+        flex: 1;
+        padding: 12px 15px;
+        background: rgba(26, 30, 33, 0.95);
+        border-radius: 12px;
+        border: 1px solid rgba(128, 237, 153, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* プロフィールヘッダー */
+    .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 0;
+    }
+
+    .profile-image {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        border: 2px solid rgba(128, 237, 153, 0.2);
+    }
+
+    .profile-title h2 {
+        font-size: 1.2em;
+        margin-bottom: 2px;
+        color: #fff;
+    }
+
+    .subtitle {
+        font-size: 0.85em;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* クイックインフォ */
+    .quick-info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: auto;
+        margin-bottom: 5px;
+    }
+
+    .info-item {
+        background: rgba(128, 237, 153, 0.05);
+        border-radius: 6px;
+        padding: 5px 8px;
+        font-size: 0.8em;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .info-item i {
+        color: #80ed99;
+        font-size: 1em;
+    }
+
+    /* ソーシャルリンク */
+    .social-links {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    .social-link {
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.03);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* 説明文とスキルを非表示 */
+    .desktop-desc,
+    .mobile-desc,
+    .desktop-bio,
+    .mobile-bio,
+    .service .desc-container,
+    .service::before,
+    .service::after,
+    .skills-section,
+    .skill-card {
+        display: none !important;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+    /* ホームスライド */
+    .home-slide {
+        flex-direction: row;
+        padding: 15px 25px;
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .SideImg {
+        width: 150px;
+        height: 150px;
+        margin: 0;
+        order: 2;
+        /* 画像を右側に */
+    }
+
+    .HomeContent {
+        flex: 1;
+        text-align: left;
+        padding: 0;
+        max-width: 600px;
+    }
+
+    .HomeContent h1 {
+        font-size: 2em;
+        margin-bottom: 8px;
+    }
+
+    .HomeContent h2 {
+        font-size: 1.4em;
+        margin-bottom: 12px;
+    }
+
+    .HomeContent .heroline {
+        font-size: 1em;
+        padding: 0;
+        line-height: 1.5;
+        max-width: 90%;
+    }
+
+    /* モバイル表示インジケーターを非表示 */
+    .home-slide::before {
+        display: none;
+    }
+
+    /* スライドヘルプテキストの位置調整 */
+    .slide-help {
+        bottom: 15px;
+        font-size: 0.9em;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* 装飾要素を非表示 */
+    .hr1,
+    .hr2,
+    .top-right-corner,
+    .bottom-left-corner {
+        display: none;
     }
 }
