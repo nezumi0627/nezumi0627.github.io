@@ -1436,11 +1436,9 @@ form h2 .SocialLinks i:hover {
         /* テキストを1行 */
     }
 
-    /* その他のスタイルは既存のまま... */
 }
 
 @media (max-width: 768px) {
-    /* 既存のスタイル... */
 
     /* プロフィールセクションのスタイル調整 */
     .profile-container {
@@ -1650,7 +1648,6 @@ form h2 .SocialLinks i:hover {
 }
 
 @media (max-width: 768px) {
-    /* 既存のスタイル... */
 
     /* 説明文を非表示に */
     .desktop-desc,
@@ -1674,7 +1671,6 @@ form h2 .SocialLinks i:hover {
 }
 
 @media (max-width: 768px) {
-    /* 既存のスタイル... */
 
     .quick-info {
         display: grid;
