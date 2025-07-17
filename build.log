@@ -1,3 +1,5 @@
+ ⚠ Specified "headers" will not automatically work with "output: export". See more info here: https://nextjs.org/docs/messages/export-no-custom-routes
+ ⚠ Specified "headers" will not automatically work with "output: export". See more info here: https://nextjs.org/docs/messages/export-no-custom-routes
    ▲ Next.js 15.2.4
 
    Creating an optimized production build ...
@@ -12,11 +14,12 @@
  ✓ Generating static pages (4/4)
    Finalizing page optimization ...
    Collecting build traces ...
+ ⚠ rewrites, redirects, and headers are not applied when exporting your application, detected (headers). See more info here: https://nextjs.org/docs/messages/export-no-custom-routes
    Exporting (0/3) ...
  ✓ Exporting (3/3)
 
 Route (app)                                 Size  First Load JS
-┌ ○ /                                      53 kB         154 kB
+┌ ○ /                                    87.4 kB         189 kB
 └ ○ /_not-found                            979 B         102 kB
 + First Load JS shared by all             101 kB
   ├ chunks/744843f8-18fc0986877e4662.js  53.2 kB

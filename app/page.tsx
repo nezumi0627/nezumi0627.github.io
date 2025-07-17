@@ -7,26 +7,27 @@ import Header from "@/components/header"
 import ProfileSection from "@/components/profile-section"
 import MyProjectsSection from "@/components/my-projects-section"
 import ContactSection from "@/components/contact-section"
+import { ensureInit, loginIfNeeded, extractTextFromUrl, sendMessage } from "@/lib/liff"
+import liff from "@line/liff"
 
 const FloatingDuck = dynamic(() => import("@/components/floating-duck"), { ssr: false })
 
 const DiscordLogo = ({ className }: { className?: string }) => (
-  <img src="/discord-logo.svg" alt="Discord" className={className} />
+  <img src="/discord-logo.svg" alt="Discord icon" className={className} />
 )
 
 const TwitterLogo = ({ className }: { className?: string }) => (
-  <img src="/twitter-logo.svg" alt="Twitter" className={className} />
+  <img src="/twitter-logo.svg" alt="Twitter icon" className={className} />
 )
 
 const GithubLogo = ({ className }: { className?: string }) => (
-  <img src="/github-logo.svg" alt="GitHub" className={className} />
+  <img src="/github-logo.svg" alt="GitHub icon" className={className} />
 )
 
 const V0_INSPIRED_ITEM_STYLE =
   "flex items-center gap-4 px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-300 group border border-white/10 shadow-sm w-full justify-start text-base"
 
 export default function Portfolio() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -43,6 +44,34 @@ export default function Portfolio() {
     }
   }, [])
 
+  // LIFF メッセージ送信用エフェクト
+  useEffect(() => {
+    (async () => {
+      try {
+        await ensureInit();
+        const loggedIn = await loginIfNeeded();
+        if (!loggedIn) return;
+
+        const text = extractTextFromUrl(new URL(window.location.href));
+        if (text) {
+          await sendMessage({
+            type: "text",
+            text,
+            sentBy: {
+              label: "Nezumi-Project@2025",
+              iconUrl: "https://raw.githubusercontent.com/nezumi0627/nezuminium.github.io/main/icon.gif",
+              linkUrl: "https://nezumi0627.github.io/",
+            },
+          });
+          liff.closeWindow();
+        }
+      } catch (err) {
+        /* eslint-disable no-console */
+        console.error(err);
+      }
+    })();
+  }, [])
+
   const socialLinks = [
     { icon: GithubLogo, href: "https://github.com/nezumi0627", label: "GitHub" },
     { icon: TwitterLogo, href: "https://x.com/nezum1n1um", label: "X (Twitter)" },
@@ -50,7 +79,7 @@ export default function Portfolio() {
   ]
 
   const projects = [
-    { name: "URL Shortener", url: "https://s.moyashi.xyz/url", description: "短縮URLサービス", icon: Link },
+    { name: "URL Shortener", url: "https://s.moyashi.xyz", description: "短縮URLサービス", icon: Link },
     {
       name: "LINE Works SDK",
       url: "https://github.com/nanato12/line-works-sdk",
@@ -72,7 +101,7 @@ export default function Portfolio() {
         {/* PCで max-w 制限（スマホはw-full） */}
         <div className="max-w-6xl mx-auto">
           <ProfileSection
-            avatarUrl="https://avatars.githubusercontent.com/u/103794002?v=4"
+            avatarUrl="/images/nezumi-logo.jpeg"
             name="nezumi"
             handle="@nezumi0627"
             birthDate="2008年6月27日"

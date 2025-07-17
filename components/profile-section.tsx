@@ -27,10 +27,13 @@ export default function ProfileSection({
           <div className="flex-shrink-0 flex justify-center items-center">
             {/* 透明度を調整 */}
             <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
-              <img
+              <Image
                 src={avatarUrl || "/placeholder.svg"}
-                alt={`${name} avatar`}
+                alt="avatar"
+                width={152}
+                height={152}
                 className="w-full h-full object-cover object-center"
+                unoptimized
               />
             </div>
           </div>

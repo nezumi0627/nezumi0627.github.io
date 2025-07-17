@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
 
 const GithubLogo = ({ className }: { className?: string }) => (
-  <img src="/github-logo.svg" alt="GitHub" className={className} />
+  <img src="/github-logo.svg" alt="GitHub icon" className={className} />
 )
 
 export default function Header() {

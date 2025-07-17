@@ -22,10 +22,10 @@ export default function ContactSection({ socialLinks, wishlistUrl, itemStyle }: 
         id="contact"
         className="backdrop-blur-2xl bg-white/2 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl mb-8 h-fit"
       >
-        <h3 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
+        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
           <Mail className="w-6 h-6" />
           Contact
-        </h3>
+        </h2>
         <div className="space-y-3">
           {socialLinks.map((social, index) => (
             <SocialLinkItem key={index} {...social} itemStyle={itemStyle} />

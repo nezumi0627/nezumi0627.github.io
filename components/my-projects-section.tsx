@@ -22,10 +22,10 @@ export default function MyProjectsSection({ projects, itemStyle }: MyProjectsSec
         id="projects"
         className="backdrop-blur-2xl bg-white/2 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl mb-8 h-fit"
       >
-        <h3 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
+        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
           <FolderOpen className="w-6 h-6" />
           My Projects
-        </h3>
+        </h2>
         <div className="grid gap-4">
           {projects.map((project, index) => (
             <ProjectLinkItem key={index} {...project} itemStyle={itemStyle} />

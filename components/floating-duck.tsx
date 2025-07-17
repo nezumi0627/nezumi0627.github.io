@@ -56,7 +56,8 @@ export default function FloatingDuck() {
     <div className="absolute inset-0 w-full h-screen z-0 pointer-events-none">
       <Canvas
         camera={{ position: [0, 0, 0], fov: 75 }}
-        gl={{ antialias: true, alpha: true, powerPreference: "low-power", dpr: 1 }}
+        dpr={1}
+        gl={{ antialias: true, alpha: true, powerPreference: "low-power" }}
       >
         <ambientLight intensity={1.0} />
         <Environment preset="sunset" />
@@ -67,3 +68,4 @@ export default function FloatingDuck() {
     </div>
   )
 }
+
